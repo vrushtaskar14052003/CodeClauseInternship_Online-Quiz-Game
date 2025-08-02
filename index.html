@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="welcome-content">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <h1>Quiz Master</h1>
+                </div>
+                <p class="subtitle">Test your knowledge with our interactive quiz!</p>
+                
+                <div class="category-selection">
+                    <h3>Choose a Category:</h3>
+                    <div class="category-grid">
+                        <button class="category-btn" data-category="general">
+                            <i class="fas fa-globe"></i>
+                            <span>General Knowledge</span>
+                        </button>
+                        <button class="category-btn" data-category="science">
+                            <i class="fas fa-flask"></i>
+                            <span>Science</span>
+                        </button>
+                        <button class="category-btn" data-category="history">
+                            <i class="fas fa-landmark"></i>
+                            <span>History</span>
+                        </button>
+                        <button class="category-btn" data-category="geography">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>Geography</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="difficulty-selection">
+                    <h3>Select Difficulty:</h3>
+                    <div class="difficulty-buttons">
+                        <button class="difficulty-btn active" data-difficulty="easy">Easy</button>
+                        <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+                        <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+                    </div>
+                </div>
+
+                <button id="start-btn" class="start-btn">
+                    <i class="fas fa-play"></i>
+                    Start Quiz
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <div class="progress-info">
+                    <span id="question-counter">Question 1 of 10</span>
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                </div>
+                <div class="score-info">
+                    <span id="current-score">Score: 0</span>
+                    <span id="timer">Time: 30s</span>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <h2 id="question-text">Loading question...</h2>
+                <div id="options-container" class="options-container">
+                    <!-- Options will be dynamically generated -->
+                </div>
+            </div>
+
+            <div class="quiz-controls">
+                <button id="next-btn" class="next-btn" disabled>
+                    Next Question <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <div class="results-content">
+                <div class="results-header">
+                    <h2>Quiz Complete!</h2>
+                    <div class="final-score">
+                        <span id="final-score-text">Score: 0/10</span>
+                        <div class="score-percentage">
+                            <span id="score-percentage">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-details">
+                    <div class="stat-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Correct: <span id="correct-answers">0</span></span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Incorrect: <span id="incorrect-answers">0</span></span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Time Taken: <span id="time-taken">0s</span></span>
+                    </div>
+                </div>
+
+                <div class="performance-message">
+                    <h3 id="performance-title">Keep Learning!</h3>
+                    <p id="performance-message">You're on the right track!</p>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="retry-btn" class="action-btn">
+                        <i class="fas fa-redo"></i>
+                        Try Again
+                    </button>
+                    <button id="home-btn" class="action-btn">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading quiz...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
